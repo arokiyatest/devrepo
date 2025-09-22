@@ -1,0 +1,19 @@
+# .github/workflows/trigger-test-repo.yml
+name: Trigger Test Repo Build
+
+on:
+  push:
+    branches:
+      - devrepo
+
+jobs:
+  trigger-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger test repo workflow
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.TEST_REPO_PAT }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/your-org/test-repo/actions/workflows/build.yml/dispatches \
+            -d '{"ref":"main"}'
