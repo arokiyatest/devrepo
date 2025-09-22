@@ -4,7 +4,7 @@ name: Trigger Test Repo Build
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   trigger-test:
