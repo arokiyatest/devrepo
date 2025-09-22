@@ -15,5 +15,5 @@ jobs:
           curl -X POST \
             -H "Authorization: token ${{ secrets.TEST_REPO_PAT }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/your-org/test-repo/actions/workflows/main.yml/dispatches \
+            https://api.github.com/repos/your-org/test-repo/actions/workflows/build.yml/dispatches \
             -d '{"ref":"main"}'
