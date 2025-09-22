@@ -4,7 +4,7 @@ name: Trigger Test Repo Build
 on:
   push:
     branches:
-      - main
+      - main  # ✅ This matches your Dev Repo's branch
 
 jobs:
   trigger-test:
@@ -15,5 +15,5 @@ jobs:
           curl -X POST \
             -H "Authorization: token ${{ secrets.TEST_REPO_PAT }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/your-org/test-repo/actions/workflows/build.yml/dispatches \
-            -d '{"ref":"main"}'
+            https://api.github.com/repos/your-username/test-repo/actions/workflows/build.yml/dispatches \
+            -d '{"ref":"main"}'  # ✅ This matches your Test Repo's branch
